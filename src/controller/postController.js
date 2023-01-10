@@ -94,7 +94,7 @@ const postController = {
         }
     },
     getComments: async (req, res) => {
-        const PERPAGE = 2
+        const PERPAGE = 20
         try {
             const { post_id, page } = req.query
             if (!post_id || !page) {
@@ -108,7 +108,7 @@ const postController = {
             }
             else {
                 const count = post.comments.length
-                const comments = post.comments.slice(PERPAGE * page, PERPAGE * page + PERPAGE)
+                const comments = post.comments.slice(PERPAGE * (page - 1), PERPAGE * (page - 1) + PERPAGE)
                 res.send({
                     data: comments,
                     totalPage: Math.ceil(count / PERPAGE)
