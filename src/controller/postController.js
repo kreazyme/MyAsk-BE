@@ -6,6 +6,7 @@ const postController = {
     createPost: async (req, res) => {
         try {
             const { content } = req.body;
+            console.log(content)
             if (!content) {
                 res.status(400).send('Content is missing')
                 return;

@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 
 const app = express()
+var cors = require('cors')
 
 const port = process.env.PORT || 3000
 const url = process.env.MONGODB_URL
@@ -15,6 +16,7 @@ mongoose.connect(url, {
 })
 mongoose.set('strictQuery', false)
 
+app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
 
