@@ -1,7 +1,6 @@
 const User = require('../model/userModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken');
-const { default: authMe } = require('../middleware/authMe');
 
 const userController = {
     register: async (req, res) => {
@@ -46,11 +45,12 @@ const userController = {
             res.status(404).send('User not found')
             return;
         }
-        else if (!bcrypt.compare(password, user.password)) {
-            res.status(400).send('Incorrect password')
-            return;
-        }
         else {
+            let isCorret = await bcrypt.compare(password, user.password)
+            if (!isCorret) {
+                res.status(400).send('Incorrect password')
+                return;
+            }
             const token = jwt.sign(username, process.env.ACCESS_TOKEN_SECRET);
             res.send({ token: token })
         }
