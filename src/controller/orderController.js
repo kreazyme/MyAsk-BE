@@ -5,9 +5,9 @@ const orderController = {
     createOrder: async (req, res) => {
         try {
             const { price, productId, name } = req.body
-            if (!price || !productId) {
+            console.log(JSON.stringify(req.body))
+            if (!price || !productId, !name) {
                 return res.status(400).send({ message: "Missing required field" })
-                return;
             }
             products.forEach((product) => {
                 if (product.id == productId) {
