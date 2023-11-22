@@ -20,8 +20,8 @@ app.use(cors())
 app.use(express.json())
 app.use(cookieParser())
 
-app.use("/api/user", require("./src/router/userRouter"))
-app.use("/api/post", require("./src/router/postRouter"))
+app.use("/api/v1/product", require("./src/router/productRouter"))
+app.use("/api/v1/order", require("./src/router/orderRouter"))
 
 app.get('/', (req, res) => {
   res.send('Hello There!')
