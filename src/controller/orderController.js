@@ -4,18 +4,21 @@ const { products } = require('../ultis/const');
 const orderController = {
     createOrder: async (req, res) => {
         try {
+            let isSuccessful = true
             const { price, productId, name } = req.body
-            console.log(JSON.stringify(req.body))
             if (!price || !productId, !name) {
+                isSuccessful = false
                 return res.status(400).send({ message: "Missing required field" })
             }
             products.forEach((product) => {
                 if (product.id == productId) {
                     if (product.price > price) {
+                        isSuccessful = false
                         return res.status(400).send({ message: "Wrong price" })
                     }
                 }
             })
+            if (!isSuccessful) return
             const newOrder = {
                 name: name,
             }
