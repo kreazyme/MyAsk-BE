@@ -5,7 +5,7 @@ const products = [
         price: 1000,
         id: 1001,
         imageUrl:
-            'https://i.pinimg.com/originals/4d/40/db/4d40dbef4879e329e9e9309ca3320470.png',
+            'https://i0.wp.com/www.nerdswithknives.com/wp-content/uploads/2018/03/Fieldstone-1024x588.png?resize=840%2C482&ssl=1',
     },
     {
         name: 'Copper',
@@ -25,7 +25,7 @@ const products = [
         price: 10000,
         id: 1004,
         imageUrl:
-            'https://i.pinimg.com/originals/ce/4d/da/ce4dda62943a0be6c3d8381673b8977b.png',
+            'https://static5.depositphotos.com/1029500/392/i/450/depositphotos_3929513-stock-photo-diamond.jpg',
     },
 ]
 
